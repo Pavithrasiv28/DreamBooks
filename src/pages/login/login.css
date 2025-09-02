@@ -1,0 +1,10 @@
+.login-container{
+    height: 100dvh;
+    width: 100dvw;
+    /* background-color: red; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-image: url('C:\Users\HP\Desktop\DreamBook_Frontend\Dreambook\public\bg.png');
+}
