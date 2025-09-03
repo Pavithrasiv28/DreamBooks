@@ -1,8 +1,9 @@
 import React from 'react';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useState } from "react";
 import logo from '../../../public/dream-book-logo.png'
 import LogoutIcon from '@mui/icons-material/Logout';
-import WindowIcon from '@mui/icons-material/Window';
+import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
@@ -10,19 +11,22 @@ import Button from '@mui/material/Button';
 
 function AdminLayout() {
    const [active, setActive] = useState("Dashboard");
+   const navigate = useNavigate();
+   const location = useLocation();
+
    const menuItems = [
-    { name: "Dashboard", icon: <WindowIcon fontSize="small" /> },
-    { name: "Books", icon: <MenuBookIcon fontSize="small" /> },
-    { name: "Authors", icon: <PermContactCalendarIcon fontSize="small" /> },
-    { name: "Employees", icon: <PeopleAltIcon fontSize="small" /> },
+    { name: "Dashboard", icon: <GridViewOutlinedIcon fontSize="small"/>, path: "/admin/dashboard" },
+    { name: "Books", icon: <MenuBookIcon fontSize="small"/>, path:"/admin/books" },
+    { name: "Authors", icon: <PermContactCalendarIcon fontSize="small"/>, path:"/admin/authors" },
+    { name: "Employees", icon: <PeopleAltIcon fontSize="small"/>, path:"/admin/employees" },
   ];
 
   return (
     <>
-    <div className='layout_container h-[100dvh] w-[100dvw] bg-green-300'>
+    <div className='layout_container flex h-[100dvh] w-[100dvw]'>
 
       {/* Admin Layout */}
-      <div className='sidebar_layout bg-white w-[22dvw] h-[100dvh] p-[min(1em,8%)] box-border'>
+      <div className='sidebar_layout bg-white w-[21dvw] h-[100dvh] p-[min(1em,8%)] box-border'>
          <div className='dashboard_logo h-2/12 w-full flex items-center justify-center'>
              <img src={logo} className="max-w-40 h-auto object-contain" />
          </div>
@@ -31,7 +35,7 @@ function AdminLayout() {
     <Button
       key={item.name}
       startIcon={item.icon}
-      onClick={() => setActive(item.name)}
+      onClick={() => {setActive(item.name); navigate(item.path);}}
       sx={{
         height: "45px",
         borderRadius: "12px",
@@ -57,9 +61,8 @@ function AdminLayout() {
          </div>
       </div>
 
-      {/* Routes */}
-      <div className='Route_pages'>
-
+      <div className='Route_pages bg-gray-100 h-[100dvh] w-[79dvw]'>
+        <Outlet/>
       </div>
     </div>
     </>
