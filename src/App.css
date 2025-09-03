@@ -1,0 +1,7 @@
+.common-button{
+    background-color: rgb(93 96 239/var(--tw-bg-opacity,1));
+    color: white;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 400;
+}

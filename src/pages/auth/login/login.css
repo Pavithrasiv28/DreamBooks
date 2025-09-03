@@ -8,3 +8,17 @@
     background-position: center;
     background-image: url('C:\Users\HP\Desktop\DreamBook_Frontend\Dreambook\public\bg.png');
 }
+.login-box{
+    height:500px;
+    width: 690px;
+    background-color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: min(2em, 8%);
+}
+/* .logo img{
+    height: auto;
+    max-width: 100%;
+    /* aspect-ratio: 1/1; */
+    /* object-fit:cover; */
+/* }  */
